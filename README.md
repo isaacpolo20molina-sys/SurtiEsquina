@@ -197,7 +197,7 @@ Desarrollar e implementar un sistema de información y gestión comercial para l
 2. 📐 **Diseñar** la estructura del sistema y el modelo de base de datos para organizar de manera eficiente la información correspondiente a los módulos de inventario, punto de venta y gestión de proveedores.
 3. 💻 **Desarrollar** los módulos funcionales del sistema de gestión comercial, permitiendo automatizar el registro de ventas, el control de inventario y la administración de productos y proveedores.
 4. 🧪 **Realizar pruebas** funcionales al sistema desarrollado para verificar el correcto funcionamiento del software.
-5. 🚀 **Implementar**el sistema de gestión comercial y capacitar al personal de la tienda en el uso de la plataforma.
+5. 🚀 **Implementar** el sistema de gestión comercial y capacitar al personal de la tienda en el uso de la plataforma.
 
 [⬆ Volver arriba](#encabezado)
 
@@ -221,6 +221,7 @@ El sistema contempla la automatización de los principales procesos comerciales 
 - [x] Registrar compras y recepciones.
 - [x] Gestionar operaciones de caja.
 - [x] Consultar reportes gerenciales.
+- [x] Gestión de clientes con saldo pendiente.
 
 *Nota: Las marcas indican funcionalidades contempladas en el alcance documental, no necesariamente funcionalidades ya implementadas.*
 
@@ -237,7 +238,7 @@ Los actores representan los usuarios y entidades externas que participan en los 
 | Actor | Tipo | Responsabilidades principales |
 |---|---|---|
 | 👑 **Administrador** | Principal | Gestionar usuarios, proveedores, compras, inventario, auditoría, respaldos y reportes. |
-| 💵 **Cajero** | Principal | Operar caja, procesar ventas, consultar productos y realizar arqueos. |
+| 💵 **Cajero** | Principal | Operar caja, procesar ventas, consultar productos, realizar arqueos y registrar un saldo pendiente. |
 | 🤖 **Sistema** | Secundario | Ejecutar validaciones, calcular totales, actualizar existencias y emitir alertas. |
 | 🚚 **Proveedor** | Secundario | Suministrar mercancía y atender solicitudes de abastecimiento. |
 | 👤 **Cliente** | Secundario | Participar como receptor final del proceso comercial. |
@@ -293,9 +294,9 @@ La documentación contempla una clasificación de **RF-01 a RF-63**.
 <summary><b>👥 Gestión de usuarios — RF-05 a RF-08</b></summary>
 
 - **RF-05:** Registrar nuevos usuarios del sistema.
-- **RF-06:** Modificar información de usuarios existentes.
+- **RF-06:** Editar información de usuarios existentes.
 - **RF-07:** Cambiar el estado de los usuarios.
-- **RF-08:** Consultar el catálogo de usuarios.
+- **RF-08:** Consultar usuarios.
 
 </details>
 
@@ -303,103 +304,108 @@ La documentación contempla una clasificación de **RF-01 a RF-63**.
 <summary><b>🗂️ Gestión de categorías — RF-09 a RF-12</b></summary>
 
 - **RF-09:** Registrar categorías de mercancía.
-- **RF-10:** Modificar información de categorías.
-- **RF-11:** Consultar categorías registradas.
-- **RF-12:** Activar o inactivar categorías.
+- **RF-10:** Editar información de categorías.
+- **RF-11:** Activar o inactivar categorías.
+- **RF-12:** Consultar categorías registradas.
 
 </details>
 
 <details>
-<summary><b>🚚 Gestión de proveedores — RF-13 a RF-16</b></summary>
+<summary><b>🚚 Gestión de proveedores — RF-13 a RF-15</b></summary>
 
 - **RF-13:** Registrar nuevos proveedores comerciales.
-- **RF-14:** Actualizar información de proveedores.
-- **RF-15:** Consultar el directorio de proveedores.
-- **RF-16:** Inactivar proveedores.
+- **RF-14:** Editar información de proveedores.
+- **RF-15:** Inactivar proveedores.
 
 </details>
 
 <details>
-<summary><b>📦 Gestión de productos — RF-17 a RF-20</b></summary>
+<summary><b>📦 Gestión de productos — RF-16 a RF-22</b></summary>
 
-- **RF-17:** Registrar productos con costo, precio y stock mínimo.
-- **RF-18:** Actualizar datos de productos.
+- **RF-16:** Registrar productos con costo, precio y stock mínimo.
+- **RF-17:** Editar datos de productos.
+- **RF-18:** Cambiar el estado del producto.
 - **RF-19:** Consultar catálogo por nombre, código o categoría.
-- **RF-20:** Cambiar el estado del producto.
+- **RF-20:** Gestionar imagen y marca del producto.
+- **RF-21:**  Configurar stock mínimo y vencimiento.
+- **RF-22:**  Consultar productos con stock bajo.
+  
+</details>
+
+<details>
+<summary><b>🛒 Compras y solicitud de mercancía — RF-23 a RF-27</b></summary>
+
+- **RF-23:** Crear solicitud de mercancía.
+- **RF-24:** Registrar pedido al proveedor.
+- **RF-25:** Actualizar estado del pedido.
+- **RF-26:** Consultar historial de compras.
+- **RF-27:** Detallar artículos y cantidades por orden.
+  
+</details>
+
+<details>
+<summary><b>📥 Recepción de mercancía — RF-28 a RF-33</b></summary>
+
+- **RF-28:** Registrar la llegada física de pedidos.
+- **RF-29:** Comparar cantidades solicitadas y recibidas.
+- **RF-30:** Registrar novedades por daños o faltantes.
+- **RF-31:** Confirmar recepción y actualizar existencias.
+- **RF-32:**  Actualizar inventario por recepción.
+- **RF-33:** Registrar fecha de vencimiento de mercancía recibida.
 
 </details>
 
 <details>
-<summary><b>🛒 Compras y solicitud de mercancía — RF-21 a RF-24</b></summary>
+<summary><b>📊 Inventario — RF-34 a RF-38</b></summary>
 
-- **RF-21:** Crear órdenes de compra a proveedores.
-- **RF-22:** Consultar historial de compras realizadas.
-- **RF-23:** Cancelar órdenes de compra pendientes.
-- **RF-24:** Detallar artículos y cantidades por orden.
-
-</details>
-
-<details>
-<summary><b>📥 Recepción de mercancía — RF-25 a RF-28</b></summary>
-
-- **RF-25:** Registrar la llegada física de pedidos.
-- **RF-26:** Comparar cantidades solicitadas y recibidas.
-- **RF-27:** Registrar novedades por daños o faltantes.
-- **RF-28:** Confirmar recepción y actualizar existencias.
+- **RF-34:** Clasificar productos.
+- **RF-35:** Consultar existencias.
+- **RF-36:** Registrar ajuste de inventario.
+- **RF-37:** Registrar ajuste de inventario.
+- **RF-38:** Consultar movimientos de inventario.
 
 </details>
 
 <details>
-<summary><b>📊 Inventario — RF-29 a RF-33</b></summary>
+<summary><b>💰 Ventas — RF-39 a RF-45</b></summary>
 
-- **RF-29:** Consultar existencias.
-- **RF-30:** Registrar entradas manuales y ajustes.
-- **RF-31:** Registrar salidas por mermas o daños.
-- **RF-32:** Generar alertas por stock mínimo.
-- **RF-33:** Consultar alertas de productos próximos a vencer.
-
-</details>
-
-<details>
-<summary><b>💰 Ventas — RF-34 a RF-40</b></summary>
-
-- **RF-34:** Registrar transacciones de venta.
-- **RF-35:** Buscar productos por código de barras durante el cobro.
-- **RF-36:** Calcular automáticamente subtotales y totales.
-- **RF-37:** Registrar múltiples medios de pago.
-- **RF-38:** Imprimir o emitir comprobantes de pago.
-- **RF-39:** Anular ventas con autorización previa.
-- **RF-40:** Consultar historial de ventas.
+- **RF-39:** Buscar producto para la venta.
+- **RF-40:** Verificar disponibilidad del stock para la venta.
+- **RF-41:** Agregar productos a la venta.
+- **RF-42:** Registrar múltiples medios de pago.
+- **RF-43:** Imprimir o emitir comprobantes de pago.
+- **RF-44:** Consultar historial de ventas.
+- **RF-45:** Anular ventas con autorización previa.
 
 </details>
 
 <details>
-<summary><b>💵 Caja — RF-41 a RF-46</b></summary>
+<summary><b>💵 Caja — RF-46 a RF-51</b></summary>
 
-- **RF-41:** Registrar apertura de caja y fondo inicial.
-- **RF-42:** Registrar ingresos extraordinarios en efectivo.
-- **RF-43:** Registrar egresos o retiros autorizados.
-- **RF-44:** Consultar movimientos de la sesión activa.
-- **RF-45:** Realizar arqueo de cierre y cálculo de diferencias.
-- **RF-46:** Consultar historial de cierres de caja.
+- **RF-46:** Registrar apertura de caja y fondo inicial.
+- **RF-47:** Registrar ingresos manuales en efectivo.
+- **RF-48:** Registrar egresos o retiros  autorizados.
+- **RF-49:** Consultar movimientos de la sesión activa.
+- **RF-50:** Realizar arqueo de cierre y cálculo de diferencias.
+- **RF-51:** Consultar historial de cierres de caja.
 
 </details>
 
 <details>
-<summary><b>📈 Reportes y análisis — RF-47 a RF-58</b></summary>
+<summary><b>📈 Reportes y análisis — RF-52 a RF-63</b></summary>
 
-- **RF-47:** Reporte de ventas por rangos de fecha.
-- **RF-48:** Reporte de inventario actual y valoración.
-- **RF-49:** Reporte de compras por proveedor.
-- **RF-50:** Reporte de artículos bajo stock mínimo.
-- **RF-51:** Reporte de productos vencidos o dañados.
-- **RF-52:** Reporte financiero de pérdidas y ganancias.
-- **RF-53:** Reporte consolidado de proveedores.
-- **RF-54:** Reporte de movimientos de inventario.
-- **RF-55:** Reporte de cierres y movimientos de caja.
-- **RF-56:** Visualización de Dashboard interactivo.
-- **RF-57:** Generar copias de seguridad.
-- **RF-58:** Restaurar copias de seguridad.
+- **RF-52:** Reporte de ventas por rangos de fecha.
+- **RF-53:** Reporte de inventario actual y valoración.
+- **RF-54:** Reporte de compras por proveedor.
+- **RF-55:** Reporte de artículos bajo stock mínimo.
+- **RF-56:** Reporte de productos vencidos o dañados.
+- **RF-57:** Reporte financiero de pérdidas y ganancias.
+- **RF-58:** Reporte consolidado de proveedores.
+- **RF-59:** Reporte de movimientos de inventario.
+- **RF-60:** Reporte de cierres y movimientos de caja.
+- **RF-61:** Visualización de Dashboard interactivo.
+- **RF-62:** Generar copias de seguridad.
+- **RF-63:** Restaurar copias de seguridad.
 
 </details>
 
@@ -410,7 +416,6 @@ La documentación inicial identifica este rango como correspondiente a utilidade
 
 </details>
 
-> **Nota de validación documental:** La descripción general indica 63 requisitos funcionales, pero el listado desarrollado contiene RF-01 a RF-58. Es necesario completar y verificar RF-59 a RF-63 para que el índice y las métricas coincidan con la matriz oficial.
 
 [⬆ Volver arriba](#encabezado)
 
@@ -847,7 +852,6 @@ El proyecto contempla herramientas y tecnologías orientadas al desarrollo de ap
 <p align="center">
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"/>
-<img src="https://img.shields.io/badge/NetBeans-1B6AC6?style=for-the-badge&logo=apache-netbeans&logoColor=white" alt="NetBeans"/>
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
 </p>
@@ -1102,8 +1106,8 @@ El proyecto se encuentra en proceso de construcción y consolidación de sus com
 
 | Etapa | Estado |
 |---|---|
-| Levantamiento de requerimientos | Completado según documentación |
-| Diseño de base de datos | Completado según documentación |
+| Levantamiento de requerimientos | Completado |
+| Diseño de base de datos | Completado |
 | Diseño de interfaces | En desarrollo |
 | Desarrollo Backend | En desarrollo |
 | Integración | Pendiente de consolidación |
@@ -1203,27 +1207,9 @@ SurtiEsquina es desarrollado como un proyecto académico y colaborativo por un e
 
 | Integrante | Rol |
 |---|---|
-| **Isaac David Polo Molina** | Por definir |
-| **Juan Esteban Arboleda Serrano** | Por definir |
-| **Johan Yesid Urbina Muñoz** | Por definir |
-
-### Perfil técnico destacado
-
-**Isaac David Polo Molina**
-
-*Desarrollador de Software en Formación | Análisis de Sistemas | Bases de Datos*
-
-Estudiante enfocado en análisis de sistemas, desarrollo Backend y Frontend, bases de datos SQL, Java, Python, Django, Git, GitHub y modelado de software mediante UML.
-
-### Áreas de conocimiento
-
-- Desarrollo de software.
-- Análisis y diseño de sistemas.
-- Modelado de bases de datos.
-- Programación orientada a objetos.
-- Desarrollo de aplicaciones.
-- Control de versiones.
-- Documentación técnica.
+| **Isaac David Polo Molina** | Programador |
+| **Juan Esteban Arboleda Serrano** | Programador |
+| **Johan Yesid Urbina Muñoz** | Programador |
 
 [⬆ Volver arriba](#encabezado)
 
