@@ -73,7 +73,7 @@ La solución centraliza y automatiza los procesos comerciales y administrativos 
 
 ---
 
-## ❗ Problema identificado
+## ## <a id="problema-identificado"></a>❗ Problema identificado
 
 La operación tradicional de la tienda presenta múltiples dificultades derivadas de la gestión manual de la información:
 
