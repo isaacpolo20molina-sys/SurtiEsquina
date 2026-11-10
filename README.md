@@ -73,7 +73,7 @@ La solución centraliza y automatiza los procesos comerciales y administrativos 
 
 ---
 
-## ## <a id="problema-identificado"></a>❗ Problema identificado
+## <a id="problema-identificado"></a>❗ Problema identificado
 
 La operación tradicional de la tienda presenta múltiples dificultades derivadas de la gestión manual de la información:
 
@@ -88,7 +88,7 @@ La operación tradicional de la tienda presenta múltiples dificultades derivada
 
 ---
 
-## 💡 Justificación
+## <a id="justificación"></a> 💡 Justificación
 
 El desarrollo de SurtiEsquina se justifica por la necesidad de dotar a la tienda de barrio de herramientas tecnológicas accesibles y estructuradas que permitan:
 - **Automatizar y centralizar** los procesos comerciales y de control de mercancía.
@@ -100,7 +100,7 @@ El desarrollo de SurtiEsquina se justifica por la necesidad de dotar a la tienda
 
 ---
 
-## 🎯 Objetivos
+## <a id="objetivos"></a> 🎯 Objetivos
 
 ### Objetivo general
 Desarrollar e implementar un sistema de información y gestión comercial para SurtiEsquina que permita automatizar los procesos de control de inventarios, ventas y gestión de proveedores, con el fin de mejorar la administración del negocio, reducir inconsistencias en el inventario y facilitar el control de pérdidas y ganancias.
@@ -114,7 +114,7 @@ Desarrollar e implementar un sistema de información y gestión comercial para S
 
 ---
 
-## 🎯 Alcance
+## <a id="alcance"></a> 🎯 Alcance
 
 El alcance inicial del sistema comprende las siguientes capacidades operativas básicas:
 1. Registrar nuevos productos en el catálogo.
@@ -128,7 +128,7 @@ El alcance inicial del sistema comprende las siguientes capacidades operativas b
 
 ---
 
-## 👥 Actores del sistema
+## <a id="actores-del-sistema"></a> 👥 Actores del sistema
 
 - **Administrador:** Actor principal con privilegios totales sobre el sistema. Gestiona usuarios, proveedores, categorías, productos, compras, recepción, configuración de seguridad, copias de seguridad, auditoría y reportes gerenciales.
 - **Cajero:** Actor encargado de la ejecución de ventas, consulta de precios y productos, apertura, movimientos y cierre de caja.
@@ -138,7 +138,7 @@ El alcance inicial del sistema comprende las siguientes capacidades operativas b
 
 ---
 
-## 🧩 Módulos del sistema
+## <a id="módulos"></a> 🧩 Módulos del sistema
 
 El sistema se organiza en 11 módulos funcionales:
 
@@ -175,7 +175,7 @@ El sistema se organiza en 11 módulos funcionales:
 
 ---
 
-## ✨ Funcionalidades
+## <a id="funcionalidades"></a> ✨ Funcionalidades
 
 El sistema implementa 63 requisitos funcionales (RF-01 a RF-63) distribuidos en sus diferentes módulos.
 
@@ -268,13 +268,13 @@ El sistema implementa 63 requisitos funcionales (RF-01 a RF-63) distribuidos en 
 
 ---
 
-## 📝 Historias de usuario
+## <a id="historias-de-usuario"></a> 📝 Historias de usuario
 
 El proyecto formaliza sus requerimientos funcionales mediante historias de usuario codificadas desde `[HU-001]` hasta `[HU-063]`, estructuradas bajo el estándar ágil (*Como [rol], quiero [acción] para [beneficio]*), garantizando la trazabilidad entre el problema del usuario y la implementación técnica.
 
 ---
 
-## 📏 Reglas de negocio
+## <a id="reglas-de-negocio"></a> 📏 Reglas de negocio
 
 El sistema aplica estrictas reglas de negocio (`RN-01` a `RN-63`) para mantener la integridad operativa:
 - **Usuarios y Roles:** Todo usuario debe contar con un estado activo y un rol único (Administrador o Cajero) que restrinja su acceso a los módulos autorizados.
@@ -286,7 +286,7 @@ El sistema aplica estrictas reglas de negocio (`RN-01` a `RN-63`) para mantener 
 
 ---
 
-## 🔄 Casos de uso
+## <a id="casos-de-uso"></a> 🔄 Casos de uso
 
 El diseño del sistema comprende 11 casos de uso principales documentados en la matriz del proyecto:
 
@@ -306,13 +306,13 @@ El diseño del sistema comprende 11 casos de uso principales documentados en la 
 
 ---
 
-## 📋 Especificación de casos de uso
+## <a id="especificación-de-casos-de-uso"></a> 📋 Especificación de casos de uso
 
 Cada caso de uso cuenta con su respectiva especificación técnica que detalla propósito, precondiciones, postcondiciones, flujos principales y flujos alternativos (excepciones operativas). Los procesos críticos documentados incluyen: *Autenticarse, Gestionar usuarios, Gestionar productos, Gestionar inventario, Gestionar ventas, Gestionar caja y Consultar reportes*.
 
 ---
 
-## 🏗️ Arquitectura
+## <a id="arquitectura"></a> 🏗️ Arquitectura
 
 El repositorio se encuentra estructurado bajo una arquitectura modular clara:
 
