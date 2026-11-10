@@ -59,7 +59,7 @@
 
 ---
 
-## 📌 Sobre el proyecto
+## <a id="sobre-el-proyecto"></a>📌 Sobre el proyecto
 
 **SurtiEsquina** es un sistema de información y gestión comercial desarrollado para optimizar la administración operativa de una tienda de barrio ubicada en la Comuna 9 de Medellín, Colombia. El proyecto se enmarca dentro del proceso de formación en desarrollo y análisis de software del SENA.
 
