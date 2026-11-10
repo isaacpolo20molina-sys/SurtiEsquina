@@ -107,7 +107,7 @@ Su propósito es centralizar y automatizar los procesos comerciales y administra
 | Área | Descripción |
 |---|---|
 | 📦 **Inventario** | Control de existencias, movimientos y alertas de stock. |
-| 💰 **Ventas** | Registro de transacciones, pagos y comprobantes. |
+| 💰 **Ventas** | Registro de transacciones, pagos, fiados y comprobantes. |
 | 🚚 **Proveedores y compras** | Gestión de pedidos y abastecimiento. |
 | 📥 **Recepción** | Verificación física de mercancía e identificación de novedades. |
 | 👤 **Administración** | Gestión de usuarios, roles, categorías y productos. |
@@ -127,7 +127,7 @@ La operación tradicional de la tienda presenta múltiples dificultades derivada
 |---|---|
 | 📝 Gestión manual | Registros en papel propensos a errores e inconsistencias. |
 | 📦 Discrepancias de inventario | Diferencias entre el stock físico y el registrado. |
-| 👻 Inventario fantasma | Mermas, robos y errores que no se detectan oportunamente. |
+| 👻 Inventario fantasma | Mermas y errores que no se detectan oportunamente. |
 | 🚚 Control de proveedores | Dificultad para rastrear entregas y pedidos. |
 | ⏳ Productos perecederos | Pérdidas por vencimiento y deterioro. |
 | 💰 Control financiero | Dificultad para determinar ganancias, pérdidas y movimientos de caja. |
@@ -136,7 +136,7 @@ La operación tradicional de la tienda presenta múltiples dificultades derivada
 
 - **Gestión manual:** Los registros de entradas, salidas y existencias se realizan manualmente, propiciando errores y demoras.
 - **Dificultades en inventario:** Falta de precisión para conocer las existencias reales en bodega y estantería.
-- **Inventarios fantasma:** Inconsistencias en los registros que no reflejan el stock físico real debido a mermas, robos o errores.
+- **Inventarios fantasma:** Inconsistencias en los registros que no reflejan el stock físico real debido a mermas o errores.
 - **Registro de ventas:** Ausencia de un sistema centralizado para procesar cobros y generar comprobantes de forma inmediata.
 - **Control de proveedores:** Dificultad para mantener trazabilidad sobre compras, pedidos pendientes y facturación.
 - **Productos perecederos y papelería:** La verdulería requiere seguimiento por su rápido deterioro, mientras que la papelería presenta dificultades en el control de existencias.
@@ -174,7 +174,6 @@ La implementación de SurtiEsquina responde a la necesidad de modernizar los pro
 - Apoyo a la toma de decisiones.
 - Información sobre rentabilidad y flujos de caja.
 - Mejor control de proveedores.
-- Implementación tecnológica de bajo costo.
 
 </td>
 </tr>
@@ -190,15 +189,15 @@ El desarrollo de esta solución también permite aplicar conocimientos de ingeni
 
 ### Objetivo general
 
-Desarrollar e implementar un sistema de información y gestión comercial para SurtiEsquina que permita automatizar los procesos de control de inventarios, ventas y gestión de proveedores, con el fin de mejorar la administración del negocio, reducir inconsistencias en el inventario y facilitar el control de pérdidas y ganancias.
+Desarrollar e implementar un sistema de información y gestión comercial para la tienda SurtiEsquina, que permita automatizar los procesos de control de inventarios, ventas y gestión de proveedores, con el fin de mejorar la administración del negocio, reducir inconsistencias en el inventario y facilitar el control de pérdidas y ganancias.
 
 ### Objetivos específicos
 
-1. 📋 **Levantar y analizar** los requerimientos funcionales y no funcionales del negocio.
-2. 📐 **Diseñar** la arquitectura del sistema y el modelo relacional de la base de datos.
-3. 💻 **Desarrollar** los módulos funcionales requeridos para la operación comercial.
-4. 🧪 **Realizar pruebas** funcionales y de integración para garantizar la calidad del software.
-5. 🚀 **Implementar** el sistema y facilitar la capacitación del personal para su utilización.
+1. 📋 **Levantar y analizar** los requerimientos funcionales y no funcionales de la tienda SurtiEsquina, mediante técnicas de recolección de información.
+2. 📐 **Diseñar** la estructura del sistema y el modelo de base de datos para organizar de manera eficiente la información correspondiente a los módulos de inventario, punto de venta y gestión de proveedores.
+3. 💻 **Desarrollar** los módulos funcionales del sistema de gestión comercial, permitiendo automatizar el registro de ventas, el control de inventario y la administración de productos y proveedores.
+4. 🧪 **Realizar pruebas** funcionales al sistema desarrollado para verificar el correcto funcionamiento del software.
+5. 🚀 **Implementar**el sistema de gestión comercial y capacitar al personal de la tienda en el uso de la plataforma.
 
 [⬆ Volver arriba](#encabezado)
 
