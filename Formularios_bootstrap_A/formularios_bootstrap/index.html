@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gestión de productos | SurtiEsquina</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Estilos -->
+  <link rel="icon" href="css/img/icono.ico">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+
+    <div class="navbar-left">
+
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <i data-lucide="store"></i>
+        </div>
+
+        <div class="brand-text">
+          <span class="brand-name">SurtiEsquina</span>
+          <span class="brand-role">ADMINISTRADOR</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#" class="nav-item">Dashboard</a>
+        <a href="#" class="nav-item">Categorías</a>
+        <a href="#" class="nav-item">Usuarios</a>
+        <a href="#" class="nav-item active">Productos</a>
+      </nav>
+
+    </div>
+
+    <div class="navbar-right">
+      <button type="button" class="btn-logout">
+        <i data-lucide="log-out"></i>
+        <span>Cerrar sesión</span>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- ESTRUCTURA PRINCIPAL -->
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-heading">
+        <h2>Explorar catálogo</h2>
+        <i data-lucide="sliders-horizontal"></i>
+      </div>
+
+      <!-- Buscador -->
+      <div class="search-box">
+        <i data-lucide="search"></i>
+        <input
+          type="text"
+          id="buscarProducto"
+          placeholder="Buscar producto..."
+        >
+      </div>
+
+      <!-- Categorías -->
+      <section class="filter-section">
+        <h3>CATEGORÍAS</h3>
+
+        <div class="filter-options" id="filtrosCategorias">
+
+          <button class="filter-item selected"
+                  data-categoria="Todas">
+            <span>Todas las categorías</span>
+            <span class="filter-count">4</span>
+          </button>
+
+          <button class="filter-item" data-categoria="Abarrotes">
+            <span>Abarrotes</span>
+            <span class="filter-count">1</span>
+          </button>
+
+          <button class="filter-item" data-categoria="Bebidas">
+            <span>Bebidas</span>
+            <span class="filter-count">1</span>
+          </button>
+
+          <button class="filter-item"
+                  data-categoria="Snacks y mecato">
+            <span>Snacks y mecato</span>
+            <span class="filter-count">1</span>
+          </button>
+
+          <button class="filter-item"
+                  data-categoria="Aseo del hogar">
+            <span>Aseo del hogar</span>
+            <span class="filter-count">0</span>
+          </button>
+
+          <button class="filter-item"
+                  data-categoria="Lácteos y refrigerados">
+            <span>Lácteos y refrigerados</span>
+            <span class="filter-count">1</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- Estado y existencias -->
+      <section class="filter-section stock-section">
+        <h3>ESTADO Y EXISTENCIAS</h3>
+
+        <div class="filter-options">
+
+          <button class="filter-item" id="filtroActivos">
+            <span>Solo activos</span>
+          </button>
+
+          <button class="filter-item" id="filtroStock">
+            <span>Stock bajo</span>
+            <span class="filter-count">1</span>
+          </button>
+
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main class="main-content">
+
+      <div class="page-heading">
+
+        <div class="heading-text">
+          <span class="eyebrow">CATÁLOGO DE LA TIENDA</span>
+          <h1>Gestión de productos</h1>
+          <p>Todo lo que tu esquina tiene para ofrecer.</p>
+        </div>
+
+        
+<button
+  type="button"
+  class="btn-add"
+  id="btnRegistrar"
+  data-bs-toggle="modal"
+  data-bs-target="#modalRegistrarProducto"
+>
+  <i data-lucide="plus"></i>
+  <span>Registrar producto</span>
+</button>
+
+      </div>
+
+      <!-- Contador y pestañas -->
+      <div class="catalog-toolbar">
+
+        <p class="product-counter">
+          <strong id="totalProductos">4</strong>
+          productos encontrados
+        </p>
+
+        <div class="status-tabs">
+          <button class="tab active" data-estado="todos">
+            Todos
+          </button>
+          <button class="tab" data-estado="inactivo">
+            Inactivos
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Tarjetas -->
+      <section class="products-grid" id="productosGrid">
+
+        <!-- Producto 1 -->
+        <article class="product-card"
+                 data-nombre="Arroz Diana 500 g"
+                 data-categoria="Abarrotes"
+                 data-estado="activo"
+                 data-stock="20"
+                 data-minimo="5">
+
+          <div class="product-image">
+            <span class="product-status">Activo</span>
+
+            <div class="image-placeholder">
+              <i data-lucide="image-plus"></i>
+              <span>Sin imagen</span>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">ABARROTES</span>
+            <h2>Arroz Diana 500 g</h2>
+
+            <div class="product-details">
+              <div>
+                <span class="detail-label">Precio de venta</span>
+                <strong>$2.500</strong>
+              </div>
+              <div>
+                <span class="detail-label">Existencias</span>
+                <strong>20 unidades</strong>
+              </div>
+            </div>
+
+            <div class="product-actions">
+              <button class="btn-edit">Editar producto</button>
+              <button class="btn-icon" aria-label="Más opciones">
+                <i data-lucide="ellipsis"></i>
+              </button>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="product-card"
+                 data-nombre="Gaseosa Colombiana 1.5 L"
+                 data-categoria="Bebidas"
+                 data-estado="activo"
+                 data-stock="12"
+                 data-minimo="5">
+
+          <div class="product-image">
+            <span class="product-status">Activo</span>
+
+            <div class="image-placeholder">
+              <i data-lucide="image-plus"></i>
+              <span>Sin imagen</span>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">BEBIDAS</span>
+            <h2>Gaseosa Colombiana 1.5 L</h2>
+
+            <div class="product-details">
+              <div>
+                <span class="detail-label">Precio de venta</span>
+                <strong>$5.500</strong>
+              </div>
+              <div>
+                <span class="detail-label">Existencias</span>
+                <strong>12 unidades</strong>
+              </div>
+            </div>
+
+            <div class="product-actions">
+              <button class="btn-edit">Editar producto</button>
+              <button class="btn-icon" aria-label="Más opciones">
+                <i data-lucide="ellipsis"></i>
+              </button>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="product-card"
+                 data-nombre="Papas Margarita Natural"
+                 data-categoria="Snacks y mecato"
+                 data-estado="activo"
+                 data-stock="3"
+                 data-minimo="5">
+
+          <div class="product-image">
+            <span class="product-status">Activo</span>
+
+            <div class="image-placeholder">
+              <i data-lucide="image-plus"></i>
+              <span>Sin imagen</span>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">SNACKS Y MECATO</span>
+            <h2>Papas Margarita Natural</h2>
+
+            <div class="product-details">
+              <div>
+                <span class="detail-label">Precio de venta</span>
+                <strong>$3.200</strong>
+              </div>
+              <div>
+                <span class="detail-label">Existencias</span>
+                <strong>3 unidades</strong>
+              </div>
+            </div>
+
+            <div class="product-actions">
+              <button class="btn-edit">Editar producto</button>
+              <button class="btn-icon" aria-label="Más opciones">
+                <i data-lucide="ellipsis"></i>
+              </button>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- Producto 4 -->
+        <article class="product-card"
+                 data-nombre="Leche Entera 1 L"
+                 data-categoria="Lácteos y refrigerados"
+                 data-estado="activo"
+                 data-stock="15"
+                 data-minimo="5">
+
+          <div class="product-image">
+            <span class="product-status">Activo</span>
+
+            <div class="image-placeholder">
+              <i data-lucide="image-plus"></i>
+              <span>Sin imagen</span>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">
+              LÁCTEOS Y REFRIGERADOS
+            </span>
+            <h2>Leche Entera 1 L</h2>
+
+            <div class="product-details">
+              <div>
+                <span class="detail-label">Precio de venta</span>
+                <strong>$4.500</strong>
+              </div>
+              <div>
+                <span class="detail-label">Existencias</span>
+                <strong>15 unidades</strong>
+              </div>
+            </div>
+
+            <div class="product-actions">
+              <button class="btn-edit">Editar producto</button>
+              <button class="btn-icon" aria-label="Más opciones">
+                <i data-lucide="ellipsis"></i>
+              </button>
+            </div>
+          </div>
+
+        </article>
+
+      </section>
+
+      <p class="empty-message" id="sinResultados" hidden>
+        No se encontraron productos con los filtros seleccionados.
+      </p>
+
+<!-- =====================================
+     ESTADÍSTICAS POR CATEGORÍA
+===================================== -->
+
+<section class="estadisticas-productos">
+
+  <div class="estadisticas-header">
+    <div>
+      <span class="eyebrow">RESUMEN DEL CATÁLOGO</span>
+
+      <h2>Productos por categoría</h2>
+
+      <p>
+        Distribución de los productos registrados
+        en la tienda.
+      </p>
+    </div>
+  </div>
+
+  <div class="estadisticas-contenido">
+
+    <!-- Gráfica -->
+    <div class="grafica-contenedor">
+      <canvas id="graficaCategorias"></canvas>
+    </div>
+
+    <!-- Lista de categorías -->
+    <div class="resumen-categorias">
+
+      <h3>Distribución del catálogo</h3>
+
+      <div id="listaCategoriasGrafica">
+        <!-- Se genera automáticamente con JavaScript -->
+      </div>
+
+      <div class="total-catalogo">
+        <span>Total de productos</span>
+        <strong id="totalGrafica">0</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+    </main>
+
+  </div>
+
+
+<!-- MODAL REGISTRAR PRODUCTO -->
+<div
+  class="modal fade"
+  id="modalRegistrarProducto"
+  tabindex="-1"
+  aria-labelledby="tituloModalProducto"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+
+    <div class="modal-content modal-producto">
+
+      <!-- ENCABEZADO -->
+      <div class="modal-header modal-producto-header">
+        <div>
+          <h2 class="modal-title" id="tituloModalProducto">
+            Registrar producto
+          </h2>
+          <p class="modal-description">
+            Completa la información del producto para mantener
+            el catálogo al día.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+
+      <!-- FORMULARIO -->
+      <form id="formRegistrarProducto" novalidate>
+
+        <div class="modal-body">
+
+          <div class="row g-3">
+
+            <!-- Nombre -->
+            <div class="col-12">
+              <label for="nombreProducto" class="form-label">
+                Nombre del producto
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombreProducto"
+                name="nombre"
+                placeholder="Ej. Arroz Diana 500 g"
+                maxlength="120"
+                required
+              >
+            </div>
+
+            <!-- Categoría -->
+            <div class="col-12 col-md-6">
+              <label for="categoriaProducto" class="form-label">
+                Categoría
+              </label>
+              <select
+                class="form-select"
+                id="categoriaProducto"
+                name="categoria"
+                required
+              >
+                <option value="" selected disabled>
+                  Seleccionar categoría
+                </option>
+                <option value="Abarrotes">Abarrotes</option>
+                <option value="Bebidas">Bebidas</option>
+                <option value="Snacks y mecato">
+                  Snacks y mecato
+                </option>
+                <option value="Aseo del hogar">
+                  Aseo del hogar
+                </option>
+                <option value="Lácteos y refrigerados">
+                  Lácteos y refrigerados
+                </option>
+              </select>
+            </div>
+
+            <!-- Marca -->
+            <div class="col-12 col-md-6">
+              <label for="marcaProducto" class="form-label">
+                Marca
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="marcaProducto"
+                name="marca"
+                placeholder="Ej. Diana"
+                maxlength="80"
+              >
+            </div>
+
+            <!-- Precio de compra -->
+            <div class="col-12 col-md-6">
+              <label for="precioCompra" class="form-label">
+                Precio de compra
+              </label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="precioCompra"
+                  name="precio_compra"
+                  placeholder="0"
+                  min="0"
+                  step="0.01"
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- Precio de venta -->
+            <div class="col-12 col-md-6">
+              <label for="precioVenta" class="form-label">
+                Precio de venta
+              </label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="precioVenta"
+                  name="precio_venta"
+                  placeholder="0"
+                  min="0.01"
+                  step="0.01"
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- Existencias -->
+            <div class="col-12 col-md-6">
+              <label for="stockInicial" class="form-label">
+                Existencias iniciales
+              </label>
+              <input
+                type="number"
+                class="form-control"
+                id="stockInicial"
+                name="stock"
+                placeholder="0"
+                min="0"
+                step="1"
+                required
+              >
+            </div>
+
+            <!-- Stock mínimo -->
+            <div class="col-12 col-md-6">
+              <label for="stockMinimo" class="form-label">
+                Stock mínimo
+              </label>
+              <input
+                type="number"
+                class="form-control"
+                id="stockMinimo"
+                name="stock_minimo"
+                placeholder="0"
+                min="0"
+                step="1"
+                required
+              >
+            </div>
+
+            <!-- Imagen -->
+            <div class="col-12 col-md-6">
+              <label for="imagenProducto" class="form-label">
+                Imagen del producto
+              </label>
+              <input
+                type="url"
+                class="form-control"
+                id="imagenProducto"
+                name="imagen"
+                placeholder="https://..."
+              >
+            </div>
+
+            <!-- Vencimiento -->
+            <div class="col-12 col-md-6">
+              <label for="fechaVencimiento" class="form-label">
+                Fecha de vencimiento
+              </label>
+              <input
+                type="date"
+                class="form-control"
+                id="fechaVencimiento"
+                name="fecha_vencimiento"
+              >
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PIE DEL MODAL -->
+        <div class="modal-footer modal-producto-footer">
+
+          <button
+            type="button"
+            class="btn btn-cancelar"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-guardar"
+          >
+            <i data-lucide="plus"></i>
+            Guardar producto
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================
+     MODAL EDITAR PRODUCTO
+===================================== -->
+
+<div
+  class="modal fade"
+  id="modalEditarProducto"
+  tabindex="-1"
+  aria-labelledby="tituloModalEditar"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+    <div class="modal-content modal-producto">
+
+      <!-- ENCABEZADO -->
+      <div class="modal-header modal-producto-header">
+
+        <div>
+          <h2 class="modal-title" id="tituloModalEditar">
+            Editar producto
+          </h2>
+
+          <p class="modal-description">
+            Actualiza la información del producto seleccionado.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+
+      </div>
+
+      <!-- FORMULARIO -->
+      <form id="formEditarProducto" novalidate>
+
+        <div class="modal-body">
+
+          <div class="row g-3">
+
+            <!-- Nombre -->
+            <div class="col-12">
+              <label for="editarNombre" class="form-label">
+                Nombre del producto
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="editarNombre"
+                maxlength="120"
+                required
+              >
+            </div>
+
+            <!-- Categoría -->
+            <div class="col-12 col-md-6">
+              <label for="editarCategoria" class="form-label">
+                Categoría
+              </label>
+
+              <select
+                class="form-select"
+                id="editarCategoria"
+                required
+              >
+                <option value="Abarrotes">Abarrotes</option>
+                <option value="Bebidas">Bebidas</option>
+                <option value="Snacks y mecato">Snacks y mecato</option>
+                <option value="Aseo del hogar">Aseo del hogar</option>
+                <option value="Lácteos y refrigerados">
+                  Lácteos y refrigerados
+                </option>
+              </select>
+            </div>
+
+            <!-- Marca -->
+            <div class="col-12 col-md-6">
+              <label for="editarMarca" class="form-label">
+                Marca
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="editarMarca"
+                placeholder="Ej. Diana"
+              >
+            </div>
+
+            <!-- Precio compra -->
+            <div class="col-12 col-md-6">
+              <label for="editarCompra" class="form-label">
+                Precio de compra
+              </label>
+
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editarCompra"
+                  min="0"
+                  step="0.01"
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- Precio venta -->
+            <div class="col-12 col-md-6">
+              <label for="editarVenta" class="form-label">
+                Precio de venta
+              </label>
+
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editarVenta"
+                  min="0.01"
+                  step="0.01"
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- Existencias -->
+            <div class="col-12 col-md-6">
+              <label for="editarStock" class="form-label">
+                Existencias
+              </label>
+
+              <input
+                type="number"
+                class="form-control"
+                id="editarStock"
+                min="0"
+                step="1"
+                required
+              >
+            </div>
+
+            <!-- Stock mínimo -->
+            <div class="col-12 col-md-6">
+              <label for="editarMinimo" class="form-label">
+                Stock mínimo
+              </label>
+
+              <input
+                type="number"
+                class="form-control"
+                id="editarMinimo"
+                min="0"
+                step="1"
+                required
+              >
+            </div>
+
+            <!-- Imagen -->
+            <div class="col-12 col-md-6">
+              <label for="editarImagen" class="form-label">
+                Imagen del producto
+              </label>
+
+              <input
+                type="url"
+                class="form-control"
+                id="editarImagen"
+                placeholder="https://..."
+              >
+            </div>
+
+            <!-- Vencimiento -->
+            <div class="col-12 col-md-6">
+              <label for="editarVencimiento" class="form-label">
+                Fecha de vencimiento
+              </label>
+
+              <input
+                type="date"
+                class="form-control"
+                id="editarVencimiento"
+              >
+            </div>
+
+            <!-- Estado -->
+            <div class="col-12">
+              <label for="editarEstado" class="form-label">
+                Estado del producto
+              </label>
+
+              <select class="form-select" id="editarEstado">
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+              </select>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- BOTONES -->
+        <div class="modal-footer modal-producto-footer">
+
+          <button
+            type="button"
+            class="btn btn-cancelar"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-guardar">
+            <i data-lucide="save"></i>
+            Guardar cambios
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sweetalert2@11.js"></script>
+<script src="js/chart.umd.min.js"></script>
+<script src="app.js"></script>
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html> 
